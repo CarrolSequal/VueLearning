@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ToDoList</title>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <script src='../js/jQuery.js'></script>
+  </head>
+<!-- MVP mode without m -->
+<!-- v视图 p控制器 -->
+  <body>
+    <div id="gpp">
+      <input type="text" id="input"/>
+      <button id="btn">Submit</button>
+      <ul id="list"></ul>
+
+    </div>
+
+    <script>
+      function Page(){}
+
+      $.extend(Page.prototype,{
+        init:function(){
+          this.bindEvents()
+        },
+        bindEvents:function(){
+          var btn = $('#btn');
+          btn.on('click',$.proxy(this.handleBtnClick,this
+          ))
+        },
+        handleBtnClick:function(){
+          var inputElem = $("#input");
+          var inputValue = $("#input").val();
+          var ulElem = $("#list");
+          ulElem.append('<li>' + inputValue + '</li>')
+          inputElem.val('');
+        }
+      })
+      // $.extends(Page.prototype,{
+      //   init:function(){
+      //     this.bindEvents()
+      //   },
+      //   bindEvents:function(){
+      //     var btn = $('#btn');
+      //     btn.on('click',$.proxy(this.handleBtnClick,this
+      //     ))
+      //   },
+      //   handleBtnClick:function(){
+      //     alert('123')
+      //   }
+      // })
+
+      var page = new Page();
+      page.init();
+    </script>
+  </body>
+</html>

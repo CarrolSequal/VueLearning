@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>test0710</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id='app'>{{contents}}</div>
+    <!-- <div>{{contents}}</div> -->
+    <div id='appp'></div>
+    <script>
+      // var dom = document.getElementById('appp');
+      // dom.innerHTML = 'Hola G!'
+
+      // setTimeout(function(){//Change in 2s
+      //   dom.innerHTML = 'Hola muy mundo'
+      // },2000)
+      
+      var app = new Vue({
+          el:'#app',//el-->范围
+          data:{//data setting
+            contents:'Hola mundooo'
+          }
+      })
+
+      setTimeout(function(){
+        app.$data.contents = 'adios mundooo'
+      },2000)
+    </script>
+
+  </body>
+</html>

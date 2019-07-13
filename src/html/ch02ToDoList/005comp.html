@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ToDoList</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+  </head>
+
+  <body>
+    <div id="root">
+      <div>
+        <input type="text" v-model="todoValue"/>
+        <button @click="handleItemClick">Submit</button>
+      </div>
+      <ul>
+
+        <!-- v-bind:content="item"===>:content="item" -->
+          <todo-item :content="item" 
+                     v-bind:index="index"
+                     v-for="(item,index) in list"
+                     @delete="handleItemDelete"><!-- Action"delete"Listened -->
+          </todo-item>
+      </ul>
+    </div>
+
+    <script>
+      //component -l
+      var TodoItem = {
+        props: ['content','index'],//<-- v-bind
+        template: "<li @click='handleItemClick'>{{content}}</li>",
+        methods: {
+          handleItemClick: function() {
+            this.$emit("delete",this.index);//click-->action"delete"Performed
+          }
+        }
+      }
+
+      var app = new Vue({
+        el:"#root",
+        components:{//component -l
+          TodoItem:TodoItem
+        },
+        data:{
+          todoValue:"",
+          list:['Lession01','Lession02','Lession03']
+        },
+        methods:{
+          handleItemClick:function(){
+            this.list.push(this.todoValue),
+            this.todoValue = ""
+          },
+          handleItemDelete:function(index){
+            // alert("delete")
+            // alert(index)
+            this.list.splice(index,1)
+            //this.list = [] //empty list Totalarray
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

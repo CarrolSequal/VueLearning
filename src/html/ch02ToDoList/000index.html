@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ToDoList</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="gpp">
+      <input type="text" v-model="inputValue"/>
+      <button v-on:click="handleBtnClick">Submit</button>
+      <ul>
+          <li v-for="item in list">{{item}}</li>
+      </ul>
+
+    </div>
+
+    <script>
+      var app = new Vue({
+        el:'#gpp',
+        data:{
+          list:['Lession01','Lession02','Lession03'],
+          inputValue:''
+        },
+        methods:{
+          handleBtnClick:function(){
+            this.list.push(this.inputValue),
+            this.inputValue = ''
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

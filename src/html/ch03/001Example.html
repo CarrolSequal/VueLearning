@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>VueExample</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+        <div @click="handleClick">
+            {{msg}}
+    
+        </div>
+        <item></item>
+    </div>
+
+    <script>
+        //component -g
+        Vue.component('item',{
+            template:'<div>hola ITEM</div>'
+        })
+
+        var vm = new Vue({//vm-->vue example
+            el:'#root',
+            data:{
+                msg:'hola mundo'
+            },
+            methods: {
+                handleClick:function(){
+                    alert('holaa')
+                }
+            }
+            //props/watch/compute
+        })
+    </script>
+  </body>
+</html>

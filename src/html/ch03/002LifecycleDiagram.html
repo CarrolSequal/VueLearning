@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>VueLifecycleDiagram</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="gpp"></div>
+    <!-- <div id="gpp">Hola Mundo</div> -->
+
+    <script>
+        //LifecycleFunction is a fun() that a vueInstanse will execute automatically at a certain period
+        var vm = new Vue({
+            el: "#gpp",
+            template:"<div>{{test}}</div>",
+            data:{
+              test:'Hola Mundo1'
+            },
+            beforeCreate:function() {
+                console.log('beforeCreate');
+            },
+            created:function(){
+                console.log('created');
+            },
+            beforeMount: function() {
+              console.log(this.$el);
+                console.log('beforeMount');
+            },
+            mounted() {
+              console.log(this.$el);
+              console.log('mounted')
+            },
+            beforeDestroy() {
+              console.log('beforeDestory');
+            },
+            destroyed() {
+              console.log('destory');
+            },
+            beforeUpdate() {
+              console.log('beforeUpdate');
+            },
+            updated() {
+              console.log('updated');
+            },
+
+        })
+    </script>
+  </body>
+</html>
