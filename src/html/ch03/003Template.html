@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="gpp">
+        <div>{{name + ' Lee'}}</div>
+        <div v-text="name + ' Lee'"></div>
+        <div v-html="name + ' Lee'"></div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#gpp",
+            data:{
+                name:"Gell"
+            }
+        })
+    </script>
+  </body>
+</html>
