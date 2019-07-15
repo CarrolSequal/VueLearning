@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>List Rendering</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="gpp">
+        <!-- <div v-for="item of list"> -->
+        <!-- <div v-for="(item,index) of list"::key="index"> 
+            {{item}}---{{index}} -->
+        
+        <!-- <div v-for="(item,index) of list"::key="index.id">
+            {{item.text}}---{{index}}
+        </div>
+        <span v-for="(item,index) of list"::key="index.id">
+                {{item.text}}
+        </span> -->
+
+        <!-- <div v-for="(item,index) of list"::key="index.id">
+            <div>
+                {{item.text}}---{{index}}
+            </div>
+            <span>
+                    {{item.text}}
+            </span>
+        </div> -->
+
+        <!-- <template v-for="(item,index) of list"::key="index.id">
+            <div>
+                {{item.text}}---{{index}}
+            </div>
+            <span>
+                    {{item.text}}
+            </span>
+        </template> -->
+        
+        <div v-for="(item,key,index) of userInfo">
+            {{item}} --- {{key}} ---{{index}}
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#gpp",
+            data:{
+                // list:[
+                //     "Hola",
+                //     "Guapo",
+                //     "Mucho",
+                //     "Bien",
+                //     "Ayoda",
+                //     "Adios"
+                // ]
+
+                // list:[{
+                //     id:"04162407",
+                //     text:"Hola"
+                // },{
+                //     id:"04162408",
+                //     text:"Guapo"
+                // },{
+                //     id:"04162409",
+                //     text:"Mucho"
+                // },]
+
+                // userInfo:{
+                //     name:"Gell",
+                //     age:23,
+                //     gender:"female",
+                //     salary:"none"
+                // }
+
+                userInfo:[1,2,3,4,'g']
+            }
+        })
+    </script>
+  </body>
+</html>

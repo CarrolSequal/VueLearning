@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Conditional Rendering</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="gpp">
+        <!-- <div v-if="show" data-test="v-if">{{msg}}</div> -->
+        <!-- <div v-show="show" data-test="v-show">{{msg}}</div> -->
+        <div v-if="show">
+          UserName:<input key="username"/>
+        </div>
+        <!-- <div v-else-if="show === 'b'">Uno B</div> -->
+        <div v-else>
+          EMail:<input key="email"/>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#gpp",
+            data:{
+              show: false
+            }
+        })
+    </script>
+  </body>
+</html>

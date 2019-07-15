@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Binding</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="gpp">
+        <!-- <div :style="styleObj" @click="handleDC">
+            Hola mundo
+        </div> -->
+        <div :style="[styleObj,{fontSize: '20px'}]" @click="handleDC">
+            Hola mundo
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#gpp",
+            data:{
+                styleObj:{
+                    color: "pink"
+                }
+            },
+            methods: {
+              handleDC:function(){
+                this.styleObj.color = this.styleObj.color ==="pink"? "aqua" :"pink";
+              }
+            }
+        })
+    </script>
+  </body>
+</html>

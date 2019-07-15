@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Computed</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="gpp">
+        <!-- {{firstName + " " +lastName}} -->
+        <!-- {{fullName()}} -->
+        {{fullName}}
+        {{age}}
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#gpp",
+            data: {
+                firstName: "Gell",
+                lastName: "Lee",
+                fullName: "Gell Lee",
+                age: 18
+            },
+            watch: {
+              firstName:function(){
+                console.log("watch 11");
+                this.fullName = this.firstName + " " + this.lastName;
+              },
+              lastName:function(){
+                console.log("watch 1");
+                this.fullName = this.firstName + " - " + this.lastName;
+              }
+            }
+            // methods: {
+            //   fullName: function(){
+            //     console.log("computed Once");
+            //     return this.firstName + " - " + this.lastName
+            //   }
+            // },
+            // computed: {
+            //   fullName: function(){
+            //     console.log("computed Once");
+            //     return this.firstName + " - " + this.lastName
+            //   }
+            // }
+        })
+    </script>
+  </body>
+</html>

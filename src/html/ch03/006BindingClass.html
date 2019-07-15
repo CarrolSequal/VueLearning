@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Binding</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <style>
+        /* .isAct */
+        .activate {
+            color: aqua
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="gpp">
+        <!-- <div @click="handleDC"
+             :class="{ act: isAct}">hola</div>     -->
+        <div @click="handleDC"
+             :class="[activate,actOne]">hola</div>  
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#gpp",
+            data:{
+                // isAct : false
+                activate : "",
+                actOne: "act-one"
+            },
+            methods: {
+                handleDC:function(){
+                    // alert('123')
+                    // this.isAct = !this.isAct;
+                    
+                    // if(this.activate === "activate"){
+                    //     this.activate =""
+                    // }else{
+                    //     this.activate = "activate"   
+                    // }--->=DownBelow
+
+                    this.activate = this.activate === "activate" ? "" : "activate"
+                }   
+            }
+        })
+    </script>
+  </body>
+</html>
