@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>father-->son</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <!-- 
+      1、use of Tag 'is'
+      2."component"-data should be a fun() with 'return' sentences
+      3.use of Tag 'ref'
+     -->
+  </head>
+
+  <body>
+    <div id="gpp">
+            <counter :count="0" @cha="handleCha"></counter>
+            <counter :count="1" @cha="handleCha"></counter>
+            <div>{{total}}</div>
+    </div>
+
+    <script>
+
+        var counter = {
+            props:['count'],//Abtain data from Base  =]\
+            data:function(){
+                return{
+                    number:this.count
+                }
+            },
+            template:'<div @click="handleClick">{{number}}</div>',
+            methods:{
+                handleClick:function(){
+                    this.number = this.number +2;
+                    this.$emit('cha',2)
+                }
+            }
+        }
+
+        var vm = new Vue({
+            el:'#gpp',
+            data:{
+                total:5
+            },
+            components:{
+                counter:counter
+            },
+            methods:{
+                handleCha:function(step){
+                    this.total = this.total +step;
+                }
+            }
+
+
+        })
+    </script>
+  </body>
+</html>
