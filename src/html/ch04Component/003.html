@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>validator&unProps</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <!-- 
+      1、validator
+      2.feature of unProps//son no accept
+      3.Props:base-son
+     -->
+  </head>
+
+  <body>
+    <div id="gpp">
+        <!-- <child :content="{a:1}"></child> -->
+        <child content="bues"></child>
+    </div>
+
+    <script>
+        Vue.component('child',{
+            // props:{
+            //     // content:String
+            //     // content:[Number,String]
+            //     content:{
+            //         type:String,
+            //         // required:false,
+            //         // default:'default value'
+            //         validator:function(value){
+            //             return (value.length > 5)
+            //         }
+            //     }
+            // },
+            template:'<div>holalal</div>'
+        })
+        var vm = new Vue({
+            el:'#gpp',
+
+        })
+    </script>
+  </body>
+</html>
